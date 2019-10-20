@@ -7,15 +7,14 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class CSVHelper {
 
     public static void main(String[] args) throws IOException
     {
-
-        System.out.println(Arrays.toString(CSVToArray("src/csv/MOCK_DATA.txt")));
-
+        System.out.println(Arrays.toString(CSVToArray("src/csv/temperature1true.csv")));
     }
 
     public static double[] CSVToArray(String filepath) throws FileNotFoundException, IOException
@@ -47,4 +46,7 @@ public class CSVHelper {
         return null;
 
     }
+
+
+    
 }
