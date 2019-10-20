@@ -1,5 +1,4 @@
 import algorithms.*;
-import com.sun.scenario.effect.Merge;
 
 public class ExperimentRunner {
     static void printArray(double arr[])
