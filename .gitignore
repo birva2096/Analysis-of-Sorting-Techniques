@@ -1,0 +1,4 @@
+#Configuration files should not be added to Git
+.idea/*
+/Sorting/Sorting.iml
+/Sorting/results/*
