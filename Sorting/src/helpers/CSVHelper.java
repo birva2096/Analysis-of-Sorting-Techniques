@@ -1,22 +1,54 @@
 package helpers;
 
-import algorithms.BubbleSort;
+import algorithms.*;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class CSVHelper {
 
     public static void main(String[] args) throws IOException {
+        //System.out.println(Arrays.toString(CSVToArray("src/csv/MOCK_DATA.txt")));
+       InsertionSort.partialsort(CSVToArray("src/csv/temperature2.csv"));
+    }
 
-        System.out.println(Arrays.toString(CSVToArray("src/csv/MOCK_DATA.csv")));
+    public static double sortedMeasure(final double[] items) {
+        int n = items.length;
+
+        // Find the sorted positions
+        Integer[] sorted = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            sorted[i] = i;
+        }
+        Arrays.sort(sorted, new Comparator<Integer>() {
+            public int compare(Integer i1, Integer i2) {
+                double o1 = items[i1];
+                double o2 = items[i2];
+                return Double.compare(o1,o2);
+            }
+
+            public boolean equals(Object other) {
+                return this == other;
+            }
+        });
+
+        // Sum up the distances
+        long sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum+= Math.abs(sorted[i] - i);
+        }
+
+        double sortedness = (double)sum/n;
+        sortedness = sortedness/n;
+//        System.out.println(sortedness*2);
+        return sortedness*2;
     }
 
     public static void runAlgorithms(double[] arr, int numberOfTrials) throws IOException {
