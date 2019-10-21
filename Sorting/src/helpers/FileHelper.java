@@ -44,4 +44,31 @@ public class FileHelper {
             e.printStackTrace();
         }
     }
+
+    //function accepts four parameters to write to a CSV file
+    public static void arrayToCSV(double[] array, String filename)
+    {
+        try
+        {
+            //create a file object and pass in file name
+            File theFile = new File(filename);
+
+            StringBuilder sb = new StringBuilder();
+
+            for (Double s : array)
+                sb.append(s.toString()).append("\n");
+
+            FileWriter csvWriter = new FileWriter(theFile, true);
+
+            csvWriter.write(sb.toString());
+            csvWriter.close();
+
+        }
+        catch (IOException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 }
