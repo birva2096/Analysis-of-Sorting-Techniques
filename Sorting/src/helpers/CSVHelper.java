@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -16,7 +15,7 @@ public class CSVHelper {
 
     public static void main(String[] args) throws IOException {
         //System.out.println(Arrays.toString(CSVToArray("src/csv/MOCK_DATA.txt")));
-       InsertionSort.partialsort(CSVToArray("src/csv/temperature2.csv"));
+       InsertionSort.partialsort(CSVToArray("/Users/birvapatel/IdeaProjects/Analysis-of-Sorting-Techniques/Sorting/src/csv/data2.csv"));
     }
 
     public static double sortedMeasure(final double[] items) {
@@ -46,9 +45,9 @@ public class CSVHelper {
         }
 
         double sortedness = (double)sum/n;
-        sortedness = sortedness/n;
-//        System.out.println(sortedness*2);
-        return sortedness*2;
+     //   sortedness = sortedness/n;
+       // System.out.println(sortedness*2);
+        return (sortedness/n)*2;
     }
 
     public static void runAlgorithms(double[] arr, int numberOfTrials, int fileIndex, Boolean degreeOfSortedness) throws IOException {
