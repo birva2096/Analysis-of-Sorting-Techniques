@@ -27,7 +27,9 @@ public class InsertionSort {
 
     public static void partialsort(double arr[]) {
         //Sorting in descending order
+      System.out.println("started");
         for (int i = 0; i < arr.length; i++) {
+            System.out.println(i);
             for (int j = 0; j < arr.length; j++) {
                 if (arr[i] >= arr[j]) {
                     double x = arr[i];
@@ -38,7 +40,7 @@ public class InsertionSort {
         }
         FileHelper.arrayToCSV(arr, "arr10.txt");
 
-        // System.out.println("m here");
+        System.out.println("m here");
         int[] flag = new int[10];
 
         //Should be always 1
@@ -46,9 +48,10 @@ public class InsertionSort {
 
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
+            //System.out.println(i);
             double key = arr[i];
             int j = i - 1;
-
+            System.out.println(i);
             /* Move elements of arr[0..i-1], that are
                greater than key, to one position ahead
                of their current position */
