@@ -35,7 +35,7 @@ public class PercentageSplittingHelper {
                 int size = (n * percentage) / 100;
                 System.out.println("Size : " + size);
                 double[] subArray = splitArray(array, 0, size);
-                CSVHelper.runAlgorithms(subArray, numberOfTrials);
+                CSVHelper.runAlgorithms(subArray, numberOfTrials,0, false);
             }
         }
     }
