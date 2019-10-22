@@ -51,7 +51,7 @@ public class CSVHelper {
         return sortedness*2;
     }
 
-    public static void runAlgorithms(double[] arr, int numberOfTrials) throws IOException {
+    public static void runAlgorithms(double[] arr, int numberOfTrials, int fileIndex, Boolean degreeOfSortedness) throws IOException {
         // Get the Java runtime
         Runtime runtime = Runtime.getRuntime();
         // Run the garbage collector
@@ -77,7 +77,11 @@ public class CSVHelper {
         System.out.println("RunTime : " + avg_rt);
         avg_mem = (double) avg_mem / numberOfTrials;
         System.out.println("Memory : " + avg_mem);
-        FileHelper.inputToCSV(String.valueOf(arr.length), String.valueOf(avg_rt), String.valueOf(avg_mem), "C:\\Users\\imn1dtec\\IdeaProjects\\Analysis-of-Sorting-Techniques\\Sorting\\src\\plotPoints\\BubbleSort_temperature2.txt");
+        if(degreeOfSortedness)
+            FileHelper.inputToCSV(String.valueOf((double)fileIndex/10), String.valueOf(avg_rt), String.valueOf(avg_mem), "C:\\Users\\imn1dtec\\IdeaProjects\\Analysis-of-Sorting-Techniques\\Sorting\\src\\plotPoints\\temperature2\\BubbleSort_temperature2.txt");
+        else
+            FileHelper.inputToCSV(String.valueOf(arr.length), String.valueOf(avg_rt), String.valueOf(avg_mem), "C:\\Users\\imn1dtec\\IdeaProjects\\Analysis-of-Sorting-Techniques\\Sorting\\src\\plotPoints\\Dummy_temperature2_" + fileIndex + ".txt");
+
     }
 
     public static double[] CSVToArray(String filepath) throws FileNotFoundException, IOException {
