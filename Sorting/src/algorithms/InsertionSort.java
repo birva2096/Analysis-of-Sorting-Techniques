@@ -8,7 +8,7 @@ import java.util.Collections;
 
 public class InsertionSort {
     public static void sort(double arr[])
-    {
+    {       //this version is modified to avoid the stack overflow exception
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             double key = arr[i];
