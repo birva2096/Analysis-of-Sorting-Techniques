@@ -1,5 +1,6 @@
 package algorithms;
 
+//Implements Selection Sort
 public class SelectionSort {
     public static void sort(double arr[])
     {

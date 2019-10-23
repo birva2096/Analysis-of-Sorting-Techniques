@@ -1,14 +1,13 @@
 package algorithms;
 
-import helpers.CSVHelper;
 import helpers.FileHelper;
+import helpers.PartialSortHelper;
 
-import java.util.Arrays;
-import java.util.Collections;
-
+//Implements Insertion Sort
 public class InsertionSort {
     public static void sort(double arr[])
-    {       //this version is modified to avoid the stack overflow exception
+    {   
+	//this version is modified to avoid the stack overflow exception
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             double key = arr[i];
@@ -27,9 +26,7 @@ public class InsertionSort {
 
     public static void partialsort(double arr[]) {
         //Sorting in descending order
-      System.out.println("started");
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(i);
             for (int j = 0; j < arr.length; j++) {
                 if (arr[i] >= arr[j]) {
                     double x = arr[i];
@@ -38,29 +35,28 @@ public class InsertionSort {
                 }
             }
         }
+	//Saves the descending order array (degree of sortedness 1)
         FileHelper.arrayToCSV(arr, "arr10.txt");
 
-        System.out.println("m here");
         int[] flag = new int[10];
 
         //Should be always 1
-        CSVHelper.sortedMeasure(arr);
+        PartialSortHelper.getSortedness(arr);
 
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
-            //System.out.println(i);
             double key = arr[i];
             int j = i - 1;
-            System.out.println(i);
-            /* Move elements of arr[0..i-1], that are
-               greater than key, to one position ahead
-               of their current position */
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
             arr[j + 1] = key;
-            double measure = CSVHelper.sortedMeasure(arr);
+
+            //calculates the degree of sortedness
+            double measure = PartialSortHelper.getSortedness(arr);
+
+            // compare and save the partially sorted arrays based on degree of sortedness
             if (measure <= 0.1 && flag[0]==0) {
                 FileHelper.arrayToCSV(arr, "arr1.txt");
                 flag[0] = 1;
