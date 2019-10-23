@@ -1,5 +1,6 @@
 package algorithms;
 
+//Implements Tail Call Elimination Quick Sort
 public class QuickSort {
     private static int partition(double arr[], int low, int high)
     {

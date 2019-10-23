@@ -1,5 +1,6 @@
 package algorithms;
 
+//Implements Merge Sort
 public class MergeSort {
     private static void merge(double arr[], int l, int m, int r)
     {
@@ -23,7 +24,7 @@ public class MergeSort {
         // Initial indexes of first and second subarrays
         int i = 0, j = 0;
 
-        // Initial index of merged subarry array
+        // Initial index of merged subarray array
         int k = l;
         while (i < n1 && j < n2)
         {
