@@ -4,12 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DegreeOfSortednessHelper {
-    public static void createCSVs(String[] fileNames, int numberOfTrials) throws IOException {
-        for (int i=0;i<fileNames.length;i++
+    public static void createCSVs(String[] filePaths, String name, int numberOfTrials) throws IOException {
+        for (int i=0;i<filePaths.length;i++
         ) {
-            String name = fileNames[i];
-            double[] datasetArray = CSVHelper.CSVToArray(name);
-            CSVHelper.runAlgorithms(datasetArray, numberOfTrials,i,true);
+            double[] datasetArray = CSVHelper.CSVToArray(filePaths[i]);
+            SortingHelper.runAlgorithms(name,datasetArray, numberOfTrials,i,true);
         }
     }
 }
